@@ -61,7 +61,12 @@ Most of these are only partially supported, because the systems structure is dif
 5. Open https://thisactivecollabtojiramigrator.example.com/index.php?secret=_secret_
    (Your secret from config.php) in your browser. You should see a form.
 6. Enter your ActiveCollab Admin Credentials, set your offsets and limits (to allow splitting the export)
-7. Export and check the results carefully
+7. Export and check the results carefully.
+8. (Create a Jira® backup)[https://confluence.atlassian.com/adminjiraserver/backing-up-data-938847673.html], ensure it's cleanly restorable and again read this README.md completely and carefully!
+9. Based on your config.php decisions / settings, ensure that the users you reference in your import exist with their ActiveCollab eMail Address in Jira
+10. Import into Jira® using (JSON import functionality)[https://confluence.atlassian.com/adminjiraserver089/importing-data-from-json-1005346888.html]
+11. Help to improve this project with your won free time! :) For example the modification hooks / process will need a lot of love and time! Also the Jira® REST Exporter could be created to allow more features ...
+12. Suggest [ActiveCollab](https://activecollab.com/) to others. It's a wonderful software and we were sad to leave it behind ...
 
 ## Tips & Tricks
 - Enable debug mode in config.php to see details and check for errors
