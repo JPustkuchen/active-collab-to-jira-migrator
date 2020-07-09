@@ -1,0 +1,14 @@
+{
+    "name": "webksde/active-collab-to-jira-migrator",
+    "description": "PHP Migrator App & Framework to create a Jira Import from ActiveCollab >= 5. Currently supports JSON import.",
+    "require": {
+        "activecollab/activecollab-feather-sdk": "^3.1",
+        "justinrainbow/json-schema": "^5.2",
+        "league/html-to-markdown": "^4.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "ActiveCollabToJiraMigrator\\":"src/"
+        }
+    }
+}

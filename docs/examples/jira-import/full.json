@@ -1,0 +1,133 @@
+{
+  "users": [
+      {
+        "name" : "abcde-12345-fedcba",
+        "groups" : [ "jira-users", "my-custom-group" ],
+        "active" : true,
+        "email" : "user1@example.com",
+        "fullname" : "User 1"
+      }
+  ],
+  "links": [
+      {
+          "name": "sub-task-link",
+          "sourceId": "2",
+          "destinationId": "1"
+      },
+      {
+          "name": "Duplicate",
+          "sourceId": "3",
+          "destinationId": "2"
+      }
+  ],
+  "projects": [
+      {
+          "name": "A Sample Project",
+          "key": "ASM",
+          "description": "JSON file description",
+          "versions": [
+              {
+                  "name": "1.0",
+                  "released": true,
+                  "releaseDate": "2012-08-31T15:59:02.161+0100"
+              },
+              {
+                  "name": "2.0"
+              }
+          ],
+          "components": [
+              "Component",
+              "AnotherComponent"
+          ],
+          "issues": [
+              {
+                  "key": "ASM-123",
+                  "priority" : "Major",
+                  "description" : "Some nice description here\nMaybe _italics_ or *bold*?",
+                  "status" : "Closed",
+                  "reporter" : "abcde-12345-fedcba",
+                  "labels" : [ "impossible", "to", "test" ],
+                  "watchers" : [ "abcde-12345-fedcba" ],
+                  "issueType" : "Bug",
+                  "resolution" : "Resolved",
+                  "created" : "2012-08-31T17:59:02.161+0100",
+                  "updated" : "P-1D",
+                  "affectedVersions" : [ "1.0" ],
+                  "summary" : "My chore for today",
+                  "assignee" : "abcde-12345-fedcba",
+                  "fixedVersions" : [ "1.0", "2.0" ],
+                  "components" : ["Component", "AnotherComponent"],
+                  "externalId" : "1",
+                  "originalEstimate": "P1W3D",
+        "timeSpent": "PT4H",
+        "estimate": "P2D",
+        "worklogs": [
+            {
+                "author": "abcde-12345-fedcba",
+                "comment": "Worklog",
+                "startDate": "P-1D", //can be a Period or DateTime
+                "timeSpent": "PT1M"
+            },
+            {
+                "author": "abcde-12345-fedcba",
+                "startDate": "2014-01-14T17:00:00.000+0100",
+                "timeSpent": "PT3H"
+            }
+        ],
+                  "customFieldValues": [
+                      {
+                          "fieldName": "Story Points",
+                          "fieldType": "com.atlassian.jira.plugin.system.customfieldtypes:float",
+                          "value": "15"
+                      },
+                      {
+                          "fieldName": "Business Value",
+                          "fieldType": "com.atlassian.jira.plugin.system.customfieldtypes:float",
+                          "value": "34"
+                      }
+                  ],
+                  "attachments" : [
+                      {
+                          "name" : "battarang.jpg",
+                          "attacher" : "bob@example.com",
+                          "created" : "2012-08-31T17:59:02.161+0100",
+                          "uri" : "http://optimus-prime/~batman/images/battarang.jpg",
+                          "description" : "This is optimus prime"
+                      }
+                  ],
+                  "comments": [
+                    {
+                        "body": "This is a comment from admin 5 days ago",
+                        "author": "abcde-12345-fedcba",
+                        "created": "2012-08-31T17:59:02.161+0100"
+                    },
+                    {
+                        "body": "This is a comment from admin 1 day ago",
+                        "author": "abcde-12345-fedcba",
+                        "created": "2012-08-31T17:59:02.161+0100"
+                    }
+                  ]
+              },
+              {
+                  "status" : "Open",
+                  "reporter" : "abcde-12345-fedcba",
+                  "issueType": "Sub-task",
+                  "created" : "P-3D",
+                  "updated" : "P-1D",
+                  "summary" : "Sub-task",
+                  "externalId": "2"
+              },
+              {
+                  "status" : "Closed",
+                  "reporter" : "abcde-12345-fedcba",
+                  "issueType": "Sub-task",
+                  "created" : "P-3D",
+                  "updated" : "P-1D",
+                  "resolution" : "Duplicate",
+                  "summary" : "Duplicate Sub-task",
+                  "externalId": "3"
+              }
+          ]
+      }
+  ]
+}

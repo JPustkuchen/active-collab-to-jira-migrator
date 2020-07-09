@@ -1,0 +1,13 @@
+# Exclude user specific files
+/config/*
+!/config/EXAMPLE.config.php
+!/config/EXAMPLE.modifications.php
+
+# Exclude vendor
+/vendor/*
+
+# Exclude .vscode/
+/.vscode/
+
+# Exclude composer.lock
+composer.lock

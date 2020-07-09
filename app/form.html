@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js" lang="en-EN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>ActiveCollab to Jira Migration</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex,nofollow">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+      <h1 class="text-center">ActiveCollab to Jira Migration</h1>
+      <div class="content">
+        <div class="login">
+          <form action="index.php" method="post" class="login-form" onsubmit="document.getElementById('submit').value='Processing ... be patient, this may need a while ...';">
+            <fieldset>
+              <legend>ActiveCollab Authentication</legend>
+              <p>
+                <label for="username">ActiveCollab Administrator Account Username:</label><br />
+                <input name="username" id="username" type="text" placeholder="Username" size="50" required="required" />
+              </p>
+
+              <p>
+                <label for="password">ActiveCollab Administrator Account Password:</label><br />
+                <input name="password" id="password" type="password" placeholder="Password" size="50" required="required" />
+              </p>
+            </fieldset>
+            <fieldset>
+            <p>
+              <legend>Advanced options</legend>
+              <fieldset>
+                <legend>Project import</legend>
+                <label for="projectLimit">Project records limit:</label><br />
+                <input name="projectLimit" id="projectLimit" type="number" placeholder="offset" size="50" min="0" value="25" required="required" /> <br />
+                <label for="projectOffset">Project records offset:</label><br />
+                <input name="projectOffset" id="projectOffset" type="number" placeholder="offset" size="50" min="0" value="0" /> <br />
+              </fieldset>
+              <fieldset>
+                <legend>User import</legend>
+                <label for="userLimit">User records limit:</label><br />
+                <input name="userLimit" id="userLimit" type="number" placeholder="offset" size="50" min="0" value="99999" /> <br />
+                <label for="userOffset">User records offset:</label><br />
+                <input name="userOffset" id="userOffset" type="number" placeholder="offset" size="50" min="0" value="0" /> <br />
+              </fieldset>
+            </fieldset>
+            <div class="buttons text-center">
+              <input type="submit" id="submit" value="Run JSON Export" class="button button--green" />
+              <button type="reset" class="button--grey">Reset</button>
+            </div>
+            <input type="hidden" name="secret" value="{{ secret }}" />
+          </form>
+        </div>
+      </div>
+    </body>
+</html>
