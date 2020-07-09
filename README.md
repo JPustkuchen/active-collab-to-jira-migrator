@@ -1,3 +1,5 @@
+![PHP Composer](https://github.com/JPustkuchen/active-collab-to-jira-migrator/workflows/PHP%20Composer/badge.svg?branch=master)
+
 # ActiveCollab to Jira® Migrator
 
 *THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
