@@ -54,7 +54,7 @@ Most of these are only partially supported, because the systems structure is dif
 ## How?
 0. Read this project documentation and code to understand what it does and how
    it works.
-1. Copy to your webserver and set /app as DocumentRoot for your VirtualHost
+1. Copy to your webserver and set `/app` as DocumentRoot for your VirtualHost.
    like `thisactivecollabtojiramigrator.example.com` (Example)
 2. Run `composer install` on the base directory via bash.
 3. Copy `config/EXAMPLE.config.php` to `config/config.php`
