@@ -26,7 +26,7 @@ If you need to move from ActiveCollab to Jira®, this tool may help you to do th
 - PHP >=7.3
 - Composer
 - Jira® Server >= 8.x (tested with 8.10.0)
-- ActiveCollab >= 5. (tested with ActiveCollab 6.2.135)
+- ActiveCollab >= 5. (tested with ActiveCollab 6.2.135 and cloud)
 
 ## What?
 ActiveCollabToJiraMigrator provides an export tool with UI, based on PHP and the [ActiveCollab Feather SDK](https://github.com/activecollab/activecollab-feather-sdk) using the [ActiveCollab SDK](https://developers.activecollab.com/api-documentation/) to create imports for Jira® based on the (JSON import functionality)[https://confluence.atlassian.com/adminjiraserver089/importing-data-from-json-1005346888.html].
@@ -64,6 +64,30 @@ Most of these are only partially supported, because the systems structure is dif
    (Your secret from config.php) in your browser. You should see a form.
 6. Enter your ActiveCollab Admin Credentials, set your offsets and limits (to allow splitting the export)
 7. Export and check the results carefully
+
+###*Alternative (Docker):*
+*Tested locally running linux. Docker is required, see https://docs.docker.com/get-docker/*
+
+Read the *how*-steps above and then take a look at the provided `Dockerfile` to understand if this option suits you.
+This option replaces step 1-5 above.
+
+Build docker image:
+   ```bash
+   docker build . --rm --tag=active-collab-to-jira-migrator:latest \
+   --build-arg SECRET=mysuperduperstrongsecret \
+   --build-arg ACTIVE_COLLAB_URL=https://app.activecollab.com/123456/ \
+   --build-arg MEMORY_LIMIT=8192M
+   ```
+Start php service:
+   ```bash
+   docker run -it --rm -p 8080:8080 --name=migrateservice active-collab-to-jira-migrator:latest
+   ```
+
+* To open a bash shell inside the docker: `docker exec -it migrateservice /bin/bash`
+* to stop the running php server: `docker kill migrateservice`
+
+Open your browser and go to http://localhost:8080/?secret=mysuperduperstrongsecret
+
 
 ## Tips & Tricks
 - Enable debug mode in config.php to see details and check for errors
