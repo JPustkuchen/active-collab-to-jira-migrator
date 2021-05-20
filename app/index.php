@@ -6,6 +6,7 @@
 
 use ActiveCollab\SDK\Client;
 use ActiveCollab\SDK\TokenInterface;
+use ActiveCollab\SDK\Authenticator\Cloud;
 use ActiveCollab\SDK\Authenticator\SelfHosted;
 use ActiveCollab\SDK\Exceptions\Authentication;
 use ActiveCollabToJiraMigrator\Export\JiraJsonExporter;
@@ -36,16 +37,34 @@ if (empty($_password)) {
 }
 
 try {
-  // Construct a self-hosted authenticator. Last parameter is URL
-  // where your Active Collab.
-  $authenticator = new SelfHosted('ActiveCollab to Jira Migration Export',
-      'ActiveCollab to Jira Migration Export',
-      $_username,
-      $_password,
-      $acUrl);
+  $_acTypeRadio = filter_input(INPUT_POST, 'acType', FILTER_SANITIZE_STRING);
+  if($_acTypeRadio == 'cloud'){
+      // Construct a cloud authenticator.
+      $authenticator = new Cloud('ActiveCollab to Jira Migration Export',
+          'ActiveCollab to Jira Migration Export',
+          $_username,
+          $_password);
 
-  // Issue a token.
-  $token = $authenticator->issueToken();
+      // Get user ID
+      $accounts = $authenticator->getAccounts();
+      // TODO: support multiple ActiveCollab accounts, reset will get first element in array of accounts
+      $account = reset($accounts)['id'];
+
+      // Issue a token.
+      $token = $authenticator->issueToken($account);
+  } elseif($_acTypeRadio == 'selfhosted'){
+      // Construct a self-hosted authenticator. Last parameter is URL where your Active Collab.
+      $authenticator = new SelfHosted('ActiveCollab to Jira Migration Export',
+          'ActiveCollab to Jira Migration Export',
+          $_username,
+          $_password,
+          $acUrl);
+
+      // Issue a token.
+      $token = $authenticator->issueToken();
+  } else {
+    throw new \Exception('Unknown ActiveCollab type, you should select cloud or self hosted');
+  }
   if ($token instanceof TokenInterface) {
     // Login successful!
     $acUrl = $token->getUrl();

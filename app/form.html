@@ -32,6 +32,13 @@
             <p>
               <legend>Advanced options</legend>
               <fieldset>
+                <legend>Self hosted or cloud version of ActiveCollab?</legend>
+                <input name="acType" type="radio" id=cloud value="cloud" checked>
+                <label for="cloud">Cloud</label><br />
+                <input name="acType" type="radio" id=selfhosted value="selfhosted">
+                <label for="selfhosted">Self hosted</label><br />
+              </fieldset>
+              <fieldset>
                 <legend>Project import</legend>
                 <label for="projectLimit">Project records limit:</label><br />
                 <input name="projectLimit" id="projectLimit" type="number" placeholder="offset" size="50" min="0" value="25" required="required" /> <br />
