@@ -4,7 +4,7 @@
 FROM php:7.3.28-buster
 
 # ---------- Install requirements ---------- #
-RUN apt-get update && apt-get install -y wget && \
+RUN apt-get update && apt-get install -y wget git && \
     # cleanup to reduce image size
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
